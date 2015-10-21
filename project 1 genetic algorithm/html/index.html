@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>492 Assignment1: Search</title>
+        <meta name="Description" content="492 assignment 1, search, genetic algrithm">
+        <meta name="Keywords" content="genetic algrithm, evolution Mona Lisa, Umich EECS492">
+        <link rel="stylesheet" type="text/css" href="css.css">
+    </head>
+        
+    <body>
+        <div class="header">
+            <div class="eecslogo">
+                <a href="https://www.eecs.umich.edu/" class="about-text" title="umich-eecs">
+                <img src="img/eecs.png" alt="umich-eecs department" width="550" height="150">
+                </a>
+            </div>
+            <div class="title">
+                <h1>UMich EECS 492 Assignment 1:Search</h1>
+                <h1 class="member">Haohan Xie</h1>
+                <h3>September 28,2015</h3>
+            </div>        
+        </div>
+    
+        <div class="main">
+            <div class="pre">
+                <p>This assignment used a genetic algorithm, search within a very large state-space to find a simple approximation to a given digital image. Following Roger Johansson's idea (http://rogeralsing.com/2008/12/07/genetic-programming-evolution-of-mona-lisa/)</a></br> Each image uses P polygons, where P=100 for the results on this page. N is the population size and K is the number of new children created per generation. T is the number of generations displayed in each animation. </br>The fitness of the image is a measure of how closely it matches the original image.</br> The learning curve shows how the fitness of the best approximation improves over time. </br>The 3D graphs depict how the fitness after 25000 generations varies with N and K.
+</p>
+            </div>
+            
+        <table class="imagecurve" cellspacing="0" border="3" width="100%">
+        <caption>Five images' results for P=100 K=1 N=1 E=500000</caption>
+        <colgroup>
+        <col span="2" align="left">
+        <col align="right">
+
+        <th align="center">Original image</th>
+        <th align="center">Approximation</th>
+        <th align="center">Fitness curve</th>
+
+        <tr>
+            <td align="center"><img src="img/image(1).jpg"></br><p>96*96px</p></td>
+            <td align="center"><img src="img/animation/a1.png"></td>
+            <td align="center"><img src="img/plotimg/darwin%20plot.jpg"></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="img/mona_lisa.jpg"></br><p>128*128px</p></td>
+            <td align="center"><img src="img/animation/a2.png"></td>
+            <td align="center"><img src="img/plotimg/plot_lisa.jpg"></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="img/giraffe.jpg"></br><p>200*200px</p></td>
+        <td align="center"><img src="img/animation/a3.png"></td>
+        <td align="center"><img src="img/plotimg/gia%20plot.jpg"></td>
+            </tr>
+
+<tr>
+        <td align="center"><img src="img/totoro.jpg"></br><p>200*200px</p></td>
+        <td align="center"><img src="img/animation/a4.png"></td>
+        <td align="center"><img src="img/plotimg/to%20plot.jpg"></td>
+</tr>
+
+<tr>
+        <td align="center"><img src="img/stary.jpg"></br><p>220*160px</p></td>
+        <td align="center"><img src="img/animation/a5.png"></td>
+        <td align="center"><img src="img/plotimg/staryplot.jpg"></td>
+</tr>
+        </table>
+            
+            
+        <table class="imagefitness" cellspacing="0" border="3" width="100%">
+        <caption>Five images' results for N and K from {1,2,4,8}</caption>
+        <colgroup>
+        <col span="2" align="left">
+        <col align="right">
+
+        <th>Original image</th>
+        <th>Fitness(N,K) plots</th>
+        <th>Best value for N & K</th>
+
+        <tr>
+            <td align="center"><img src="img/image(1).jpg"></br><p>96*96px</p></td>
+            <td align="center"><img src="img/fitness/darwin.jpg"></td>
+            <td align="center"><h3>N=1,K=4</h3></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="img/mona_lisa.jpg"></br><p>128*128px</p></td>
+            <td align="center"><img src="img/fitness/mona.jpg"></td>
+            <td align="center"><h3>K=2,N=2</h3></td>
+        </tr>
+        <tr>
+            <td align="center"><img src="img/giraffe.jpg"></br><p>200*200px</p></td>
+        <td align="center"><img src="img/fitness/giraffe.jpg"></td>
+        <td align="center"><h3>K=4,N=1</h3></td>
+            </tr>
+
+<tr>
+        <td align="center"><img src="img/totoro.jpg"></br><p>200*200px</p></td>
+        <td align="center"><img src="img/fitness/totoro.jpg"></td>
+        <td align="center"><h3>K=4,N=1</h3></td>
+</tr>
+
+<tr>
+        <td align="center"><img src="img/stary.jpg"></br><p>220*160px</p></td>
+        <td align="center"><img src="img/fitness/stary.jpg"></td>
+        <td align="center"><h3>K=4,N=1</h3></td>
+</tr>
+        </table>    
+        </div>
+        
+        <div class="bestresult">
+            <div class="bestimage"> </div>
+            <img src="img/fitness/average.jpg">
+            <h3 algin="center">K=1 N=1 gave best result for 250K genration</h3>
+        </div>
+        
+<div class="answer">
+    <h2>Mutation question</h2>
+    <p>Answer:</br>With 1/7 probability, modify a polygon by adding or deleting a vertex (with same probability). </br>With 5/21 probability, modify a vertex by moving it with deviation of 0.05 * image width or height correspondingly.
+</br>With 1/7 probability, modify color of a polygon with deviation of 0.1 * 255.
+</br>With 1/7 probability, modify alpha of a polygon with deviation of 0.1
+</br>With 2/21 probability, swap two random polygons
+</br>With 5/21 probability, generate a random polygon. The polygon is generated by first selecting a center point randomly, then generate three vertices with deviation of 0.05 * image width or height.</p>
+    <h2>Parent selection question</h2>
+    <p>Answer:Parents are selected randomly. The probability for each one to be selected is proportional to the square of fitness.
+This is done by add up all fitness square of all parents, and generate a double number in range (0, sum), then determine which range the number falls in.</p>
+        </div>
+    </body>
+
+</html>
+    

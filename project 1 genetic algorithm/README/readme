@@ -1,0 +1,22 @@
+EECS 492 Assignment 1
+
+Author : Haohan Xie
+Email  : haohanx@umich.edu
+Date   : 09/30/2015
+
+---------------How to Use-------------------
+
+Keep all image files in current directory, and add file names to imagePaths.
+
+Then make and excute as :
+
+	bash-4.2$ make
+
+	bash-4.2$ ./generate [N] [K] [E]
+
+After each excution, use make clean to delete generated files:
+
+	bash-4.2$ make clean
+
+Scrores are cout immediately, images are generated in generatedImages/ folder.
+
