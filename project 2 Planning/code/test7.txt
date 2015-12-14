@@ -1,0 +1,28 @@
+locations 6
+robots 3
+cranes 0
+piles 0
+containers 0
+
+# Move all robots except 1
+initial
+adjacent l0 l1
+adjacent l1 l0
+adjacent l2 l3
+adjacent l3 l2
+adjacent l4 l5
+adjacent l5 l4
+at r0 l0
+at r1 l2
+at r2 l4
+occupied l0
+occupied l2
+occupied l4
+free l1
+free l3
+free l5
+
+goal
+at r0 l1
+at r1 l3
+at r2 l4
