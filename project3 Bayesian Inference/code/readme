@@ -1,0 +1,7 @@
+Simply run main.py with one argument specifing path to test data
+
+$python main.py [path to train test data]
+
+A simple example is :
+
+$python main.py /home/haohanx/Documents/EECS492A3/problemA
